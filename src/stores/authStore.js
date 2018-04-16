@@ -9,6 +9,7 @@ class AuthStore {
     this.error = [];
     this.username = "";
     this.password = "";
+    this.channels = [];
   }
 
   signup() {
@@ -27,7 +28,7 @@ class AuthStore {
   }
 
   storeUser(type) {
-    return axios.post(`http://localhost:8000/${type}/`, {
+    return axios.post(`http://192.168.100.54/${type}/`, {
       username: this.username,
       password: this.password
     })
@@ -49,6 +50,8 @@ class AuthStore {
       });
   }
 
+
+
   resetForm() {
     console.log("here")
     this.error = [];
@@ -67,6 +70,7 @@ decorate(AuthStore, {
   error: observable,
   username: observable,
   password: observable,
+  channels: observable,
   isLoggedIn: computed
 })
 

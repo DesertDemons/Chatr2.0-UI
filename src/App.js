@@ -1,23 +1,33 @@
 import React from 'react';
-
+import {Switch, Route, withRouter} from 'react-router-dom';
+import {observer} from 'mobx-react';
 // Components
 import NavBar from './components/NavBar';
 import LogoutModal from './components/LogoutModal';
 import LoginModal from './components/LoginModal';
 import SignupModal from './components/SignupModal';
 import Footer from './components/Footer';
+import CreateChannel from './components/CreateChannel';
+
 
 function App(props) {
   const authStore = props.authStore;
+  const channelsStore = props.channelsStore;
   return (
     <div className="content-wrapper">
-      <NavBar authStore={authStore}/>
+      <Switch>
+        <Route path='/createChannel'
+               render={
+                 props => <CreateChannel {...props} authStore={authStore}/>
+               }/>
+      </Switch>
+      <NavBar authStore={authStore} channelStore={channelsStore} />
       <LogoutModal authStore={authStore}/>
       <LoginModal authStore={authStore}/>
-      <SignupModal authStore={authStore}/>
+      <SignupModal {...props} authStore={authStore}/>
       <Footer />
     </div>
   );
 }
 
-export default App;
+export default withRouter(observer(App));
