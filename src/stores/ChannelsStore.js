@@ -6,7 +6,7 @@ import axios from 'axios';
 class ChannelsStore {
 	constructor(){
 		this.channels = [];
-
+		this.error = [];
 	}
 
 	GetChannels() {
@@ -25,7 +25,7 @@ class ChannelsStore {
 
 decorate(ChannelsStore, {
   channels: observable,
-  
+  error: observable,
 })
 
 const channelsStore =  new ChannelsStore()

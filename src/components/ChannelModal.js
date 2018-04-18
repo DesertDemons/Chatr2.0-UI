@@ -7,15 +7,14 @@ import CreateChannel from './CreateChannel';
 
 
 
-
 function ChannelModal(props) {
-  const ChannelsStore = props.ChannelsStore;
-  const body = <CreateChannel ChannelsStore={ChannelsStore} />;
+  const channelsStore = props.channelsStore;
+  const body = <CreateChannel channelsStore={channelsStore} />;
 
   const ChannelCreate = () => {
     const thisModal = window.$('#CreateChannel')
-    ChannelsStore.ChannelCreate()
-      .then(() => !ChannelsStore.error.length && thisModal.modal('toggle'));
+    channelsStore.ChannelCreate()
+      .then(() => !channelsStore.error.length && thisModal.modal('toggle'));
   };
 
   const modalProps = {
@@ -24,7 +23,7 @@ function ChannelModal(props) {
     body: body,
     clickHandler: ChannelCreate,
     type: 'CreateChannel',
-    ChannelsStore: ChannelsStore
+    channelsStore: channelsStore
   }
 
   return <Modal {...modalProps}/>;

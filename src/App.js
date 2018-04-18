@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 import CreateChannel from './components/CreateChannel';
 
 
+
 function App(props) {
   const authStore = props.authStore;
   const channelsStore = props.channelsStore;
@@ -18,7 +19,7 @@ function App(props) {
       <Switch>
         <Route path='/createChannel'
                render={
-                 props => <CreateChannel {...props} authStore={authStore}/>
+                 props => <CreateChannel {...props} authStore={authStore} channelsStore={channelsStore}/>
                }/>
       </Switch>
       <NavBar authStore={authStore} channelsStore={channelsStore} />
