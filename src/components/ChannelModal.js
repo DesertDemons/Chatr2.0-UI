@@ -3,14 +3,14 @@ import {observer} from 'mobx-react';
 
 // Components
 import Modal from './Modal';
-import CreateChannelForm from './CreateChannelForm';
+import CreateChannel from './CreateChannel';
 
 
 
 
 function ChannelModal(props) {
   const authStore = props.authStore;
-  const body = <CreateChannelForm authStore={authStore} />;
+  const body = <CreateChannel authStore={authStore} />;
 
   const ChannelCreate = () => {
     const thisModal = window.$('#CreateChannel')

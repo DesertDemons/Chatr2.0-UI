@@ -15,13 +15,13 @@ class ChannelsStore {
 	    .then(response => response.data)
 	    .then(channelList => {
 	    	this.channels = channelList;
-	    	console.log(this.channels);
-	    	console.log(channelList);
+	    	// console.log(this.channels);
+	    	// console.log(channelList);
 	    	// console.log(channelList);
 	     //  channelList.forEach(function (channel){
 	     //      this.channels.push(channel);
-	      });
-	    })
+	      })
+	    
 	    .catch(error => console.error(error));
   	}
 
@@ -35,6 +35,6 @@ decorate(ChannelsStore, {
 })
 
 const channelsStore =  new ChannelsStore()
-channelsStore.fetchAuthors();
+channelsStore.GetChannels();
 
 export default channelsStore;
