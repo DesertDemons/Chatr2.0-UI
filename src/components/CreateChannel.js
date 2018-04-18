@@ -29,7 +29,7 @@ function CreateChannel(props) {
               // we need to change it to submit button to store to the array
               authStore.error = [];
             }}/>
-            <button className="btn btn-primary ml-3 mt-3" value="submit">Submit</button>
+            <button className="btn btn-success ml-3 mt-3" value="submit">Create</button>
         </div>
       </form>
       <div className="text-center">

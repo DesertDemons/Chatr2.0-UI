@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-
+import {observer} from 'mobx-react';
 // Fontawesome
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faAngleLeft from '@fortawesome/fontawesome-free-solid/faAngleLeft';
@@ -17,8 +17,7 @@ class SideNav extends React.Component {
   }
 
   render () {
-    console.log(this.props);
-    const channelLinks = [{name: "all"}].map(
+    const channelLinks = this.props.channelsStore.channels.map(
       channel => <ChannelNavLink key={channel.name} channel={channel} />
     )
     return (
@@ -47,4 +46,4 @@ class SideNav extends React.Component {
   }
 }
 
-export default SideNav;
+export default observer(SideNav);

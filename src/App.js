@@ -21,7 +21,7 @@ function App(props) {
                  props => <CreateChannel {...props} authStore={authStore}/>
                }/>
       </Switch>
-      <NavBar authStore={authStore} channelStore={channelsStore} />
+      <NavBar authStore={authStore} channelsStore={channelsStore} />
       <LogoutModal authStore={authStore}/>
       <LoginModal authStore={authStore}/>
       <SignupModal {...props} authStore={authStore}/>
