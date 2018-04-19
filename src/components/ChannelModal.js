@@ -8,20 +8,21 @@ import CreateChannel from './CreateChannel';
 
 
 function ChannelModal(props) {
+  const authStore = props.authStore;
   const channelsStore = props.channelsStore;
-  const body = <CreateChannel channelsStore={channelsStore} />;
+  const body = <CreateChannel target="#ChannelModal" alternateLinkText="Login by username" channelsStore={channelsStore} />;
 
-  const ChannelCreate = () => {
-    const thisModal = window.$('#CreateChannel')
-    channelsStore.ChannelCreate()
+  const createNewChannel = () => {
+    const thisModal = window.$('#ChannelModal')
+    channelsStore.PostChannel(authStore.token)
       .then(() => !channelsStore.error.length && thisModal.modal('toggle'));
   };
 
   const modalProps = {
-    id: 'CreateChannel',
+    id: 'ChannelModal',
     title: 'Channel name must be unique',
     body: body,
-    clickHandler: ChannelCreate,
+    clickHandler: createNewChannel,
     type: 'CreateChannel',
     channelsStore: channelsStore
   }

@@ -17,14 +17,15 @@ class SideNav extends React.Component {
   }
 
   render () {
+    
     const channelLinks = this.props.channelsStore.channels.map(
-      channel => <ChannelNavLink key={channel.name} channel={channel} />
+      channel => <ChannelNavLink key={channel.name} channel={channel} channelsStore={this.props.channelsStore} authStore={this.props.authStore} />
     )
     return (
       <div>
         <ul className="navbar-nav navbar-sidenav" id="exampleAccordion">
           <li className="nav-item" data-toggle="tooltip" data-placement="right">
-            <Link className="nav-link heading" to="/createChannel">
+            <Link className="nav-link heading" data-target="#ChannelModal" to="/createChannel">
               <span className="nav-link-text">Channels</span>
               <FontAwesomeIcon icon={faPlusCircle} className="ml-2"/>
             </Link>
