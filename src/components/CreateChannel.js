@@ -4,7 +4,7 @@ import {observer} from 'mobx-react';
 
 
 function CreateChannel(props) {
-  const authStore = props.authStore;
+  //const authStore = props.authStore;
   const channelsStore = props.channelsStore;
   return (
     <div>

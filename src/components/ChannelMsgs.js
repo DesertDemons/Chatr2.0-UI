@@ -5,13 +5,13 @@ function ChannelMsgs(props) {
 	const msgsStore = props.msgsStore;
   	const messages = msgsStore.messages.length > 0 && msgsStore.messages.map((author) => 
 
-  		<div class="card">
+  		<div class="card mt-3 ml-3 mr-3">
 		  <div class="card-header">
-		    Username: {author.username}
+		    <strong>USERNAME:</strong> {author.username}
 		  </div>
 		  <div class="card-body">
 		    <blockquote class="blockquote mb-0">
-		      <p>Msg :{author.message}</p>
+		      <p><strong>Says : </strong><br></br>{author.message}</p>
 		    </blockquote>
 		  </div>
 		</div>

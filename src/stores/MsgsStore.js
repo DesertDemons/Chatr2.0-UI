@@ -12,9 +12,8 @@ class MsgsStore {
 
 
   getMsgs(channelID, token) {
-
     return axios.get(`http://192.168.100.54/channels/${channelID}/`,{headers: {Authorization: `JWT ${token}` }})
-           //.then(res => res.data)
+           .then(res => res.data)
            .then(newMessages => {
              console.log(newMessages);
              this.messages = newMessages;
@@ -26,18 +25,18 @@ class MsgsStore {
 
 
 
-  // sendMsgs(channelID, token) {
-  //  return axios.post(
-  //    `http://192.168.100.54/channels/${channelID}/send/`,
-  //    {message: this.sendMessageContent},
-  //    {headers: {Authorization: `JWT ${token}` }}
-  //  )
-  //  .then(res => res.data)
-  //  .then(message => {
-  //    this.resetForm();
-  //  })
-  //  .catch(err => console.error(err));
-  // }
+  sendMsgs(channelID, token) {
+   return axios.post(
+     `http://192.168.100.54/channels/${channelID}/send/`,
+     {message: this.sendMessageContent},
+     {headers: {Authorization: `JWT ${token}` }}
+   )
+   .then(res => res.data)
+   .then(message => {
+     this.resetForm();
+   })
+   .catch(err => console.error(err));
+  }
 
 
 

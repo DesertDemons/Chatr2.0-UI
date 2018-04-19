@@ -19,16 +19,20 @@ function App(props) {
   return (
     <div className="content-wrapper">
       <Switch>
-        <Route path='/channel/:channelID'
-               render={
-                props => <ChannelMsgs {...props} authStore={authStore} channelsStore={channelsStore} msgsStore={msgsStore}/>
-               }/>
+      <Route path='/channels/:channelID'
+                      render={
+                        props => <ChannelMsgs {...props}
+                          authStore={authStore}
+                          channelsStore={channelsStore}
+                          msgsStore={msgsStore}/>
+                      } />
+        
         <Route path='/createChannel'
                render={
                  props => <ChannelModal {...props} authStore={authStore} channelsStore={channelsStore}/>
                }/>
       </Switch>
-      <NavBar authStore={authStore} channelsStore={channelsStore} />
+      <NavBar authStore={authStore} channelsStore={channelsStore} msgsStore={msgsStore}/>
       <LogoutModal authStore={authStore}/>
       <LoginModal authStore={authStore}/>
       <SignupModal {...props} authStore={authStore}/>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {decorate, observable, computed} from 'mobx';
+import {decorate, observable} from 'mobx';
 import axios from 'axios';
 
 
@@ -51,10 +51,12 @@ class ChannelsStore {
 
 	setChannel(channel,id) {
      this.selectedChannel = channel;
-     this.getAllMessages();
+     
     }
 
-	
+	getChannelByName(name) {
+  		return this.channels.find(channel => channel.name === name);
+	}
 
 	//this is to reset the forms
 	resetForm() {
