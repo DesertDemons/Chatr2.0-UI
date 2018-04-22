@@ -528,3 +528,17 @@ footer.sticky-footer {
 .MessageForm input {
   padding: 0 0 0 4px;
 }
+
+/*the new css to fix send msg form*/
+.message-form {
+  position: fixed;
+  bottom: 56px;
+  right: 0;
+  z-index: 100;
+  width: 100%;
+  background-color: #e9ecef;
+}
+
+textarea {
+  resize: none;
+}

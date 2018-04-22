@@ -2,10 +2,12 @@ import React from 'react';
 import {NavLink} from 'react-router-dom';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import faHashtag from '@fortawesome/fontawesome-free-solid/faHashtag'
+import {observer} from 'mobx-react';
+import {Switch, Route, withRouter} from 'react-router-dom';
 
 function ChannelNavLink(props) {
 	//console.log(props.msgsStore);
-	console.log(props.channel.id)
+	//console.log(props.channel.id)
   return (
     <li className="nav-item" data-toggle="tooltip" data-placement="right" title={props.channel.name}>
       <NavLink className="nav-link" to={`/channels/${props.channel.id}`}
@@ -22,4 +24,4 @@ function ChannelNavLink(props) {
   );
 }
 
-export default ChannelNavLink;
+export default withRouter(observer(ChannelNavLink));

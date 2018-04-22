@@ -15,7 +15,7 @@ class MsgsStore {
     return axios.get(`http://192.168.100.54/channels/${channelID}/`,{headers: {Authorization: `JWT ${token}` }})
            .then(res => res.data)
            .then(newMessages => {
-             console.log(newMessages);
+             //console.log(newMessages);
              this.messages = newMessages;
            })
            .catch(err => console.error(err));
@@ -26,6 +26,9 @@ class MsgsStore {
 
 
   sendMsgs(channelID, token) {
+    console.log(this.sendMessageContent);
+    console.log(channelID);
+    console.log(token);
    return axios.post(
      `http://192.168.100.54/channels/${channelID}/send/`,
      {message: this.sendMessageContent},
@@ -63,7 +66,7 @@ decorate(MsgsStore, {
 })
 
 const msgsStore =  new MsgsStore()
-msgsStore.getMsgs();
+//msgsStore.getMsgs();
 
 
 export default msgsStore;

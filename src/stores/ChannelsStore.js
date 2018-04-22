@@ -25,7 +25,7 @@ class ChannelsStore {
   	}
 
   	// to Post a channel (create a channel) on the server
-  	PostChannel(token){
+  	PostChannel(channelName, token){
   		return axios.post('http://192.168.100.54/channels/create/',{name: this.channelName},
 	    {headers: {Authorization: `JWT ${token}` }})
 	  	.then(res => res.data)
@@ -55,7 +55,7 @@ class ChannelsStore {
     }
 
 	getChannelByName(name) {
-  		return this.channels.find(channel => channel.name === name);
+  		return this.channels.find(channel => channel.name == name);
 	}
 
 	//this is to reset the forms

@@ -7,9 +7,9 @@ import LogoutModal from './components/LogoutModal';
 import LoginModal from './components/LoginModal';
 import SignupModal from './components/SignupModal';
 import Footer from './components/Footer';
-import ChannelModal from './components/ChannelModal';
+import CreateChannel from './components/CreateChannel';
+import ChatBox from './components/ChatBox';
 import MessageForm from './components/MessageForm';
-import ChannelMsgs from './components/ChannelMsgs';
 
 
 function App(props) {
@@ -21,23 +21,27 @@ function App(props) {
       <Switch>
       <Route path='/channels/:channelID'
                       render={
-                        props => <ChannelMsgs {...props}
-                          authStore={authStore}
-                          channelsStore={channelsStore}
-                          msgsStore={msgsStore}/>
+                        props => 
+                              <ChatBox {...props}
+                                        authStore={authStore}
+                                        channelsStore={channelsStore}
+                                        msgsStore={msgsStore}/>
                       } />
         
         <Route path='/createChannel'
                render={
-                 props => <ChannelModal {...props} authStore={authStore} channelsStore={channelsStore}/>
+                 props => <CreateChannel {...props} authStore={authStore} channelsStore={channelsStore}/>
                }/>
       </Switch>
       <NavBar authStore={authStore} channelsStore={channelsStore} msgsStore={msgsStore}/>
       <LogoutModal authStore={authStore}/>
       <LoginModal authStore={authStore}/>
       <SignupModal {...props} authStore={authStore}/>
-      <MessageForm onMessageSend={this.handleNewMessage} />
       <Footer />
+      <MessageForm {...props} authStore={authStore}
+                        channelsStore={channelsStore}
+                        msgsStore={msgsStore}
+                        />
     </div>
   );
 }

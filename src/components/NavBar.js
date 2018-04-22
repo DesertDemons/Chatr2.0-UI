@@ -1,6 +1,6 @@
 import React from 'react';
 import {observer} from 'mobx-react';
-
+import {Switch, Route, withRouter} from 'react-router-dom';
 // Components
 import SideNav from './SideNav';
 import AuthButton from './AuthButton';
@@ -28,4 +28,4 @@ function NavBar(props) {
   );
 }
 
-export default observer(NavBar);
+export default withRouter(observer(NavBar));

@@ -9,6 +9,7 @@ import faPlusCircle from '@fortawesome/fontawesome-free-solid/faPlusCircle';
 
 // Components
 import ChannelNavLink from './ChannelNavLink';
+import {Switch, Route, withRouter} from 'react-router-dom';
 
 class SideNav extends React.Component {
   constructor(props) {
@@ -47,4 +48,4 @@ class SideNav extends React.Component {
   }
 }
 
-export default observer(SideNav);
+export default withRouter(observer(SideNav));
