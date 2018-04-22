@@ -6,6 +6,7 @@ import {observer} from 'mobx-react';
 function CreateChannel(props) {
   const authStore = props.authStore;
   const channelsStore = props.channelsStore;
+  let chanName = "";
   return (
     <div>
       <form>
@@ -21,12 +22,12 @@ function CreateChannel(props) {
             required
             onChange={(e) => {
               channelsStore.channelName = e.target.value
-              // we need to change it to submit button to store to the array
+              chanName = e.target.value
               channelsStore.error = [];
             }}/>
             <button type="submit" class="btn btn-success ml-3 mt-3" onClick= {() => {
               channelsStore.PostChannel(channelsStore.channelName, authStore.token)
-              alert('The channel ' + `${channelsStore.channelName}` +'was added!');
+              alert(`The channel ${chanName} was added!`);
             }}>Create</button>
             
         </div>

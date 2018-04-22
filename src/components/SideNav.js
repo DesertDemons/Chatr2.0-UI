@@ -26,7 +26,7 @@ class SideNav extends React.Component {
       <div>
         <ul className="navbar-nav navbar-sidenav" id="exampleAccordion">
           <li className="nav-item" data-toggle="tooltip" data-placement="right">
-            <Link className="nav-link heading" data-target="#ChannelModal" to="/createChannel">
+            <Link className="nav-link heading" data-target="#ChannelModal" data-toggle="modal" to="/createChannel">
               <span className="nav-link-text">Channels</span>
               <FontAwesomeIcon icon={faPlusCircle} className="ml-2"/>
             </Link>

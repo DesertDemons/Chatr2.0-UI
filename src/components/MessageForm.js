@@ -63,12 +63,12 @@ function MessageForm(props) {
 
 
       <div>
-        <div className="container fixed-bottom ">
-          <div className="input-group-prepend ml-5 ">
+        <div id="buttom-right" className="container mb-5">
+          <div className="input-group-prepend">
             <textarea onChange={ (e) => {
                                 props.msgsStore.sendMessageContent = e.target.value
 
-                              }} className="form-control input-container ml-5" aria-label="With textarea"></textarea>
+                              }} className="form-control input-container ml-4" aria-label="With textarea"></textarea>
             <button type="button" className="button-container MessageForm btn btn-primary"
                     onClick={(e) =>
                     {

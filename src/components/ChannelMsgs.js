@@ -10,7 +10,7 @@ function ChannelMsgs(props) {
   		<div className="card mt-3 ml-3 mr-3">
 		  <div className="card-header">
 		  	
-		    	<strong>USERNAME:</strong> author.username
+		    	<strong>USERNAME:</strong> {author.username}
 		    
 		  </div>
 		  <div className="card-body">
@@ -23,6 +23,8 @@ function ChannelMsgs(props) {
       return (
         <div>
           {messages}
+          <br />
+          <br />
         </div>
 
         );
